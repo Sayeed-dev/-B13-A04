@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Main Style -->
+    <link href="./src/output.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/fav-icon" href="./src/favicon-32x32.png" />
+    <title>JOB Tracker</title>
+  </head>
+  <body class="bg-blue-100">
+    <section class="mt-8">
+      <h1 class="text-3xl font-bold text-center">Job Application Tracker</h1>
+      <!-- Tracking Area -->
+      <div class="tracking-area grid grid-cols-3 gap-10 mt-6">
+        <div
+          class="total px-6 py-3 w-ful rounded-md shadow-xl bg-[#3498db] flex justify-between"
+        >
+          <h2 class="text-amber-50">Total</h2>
+          <h2 id="total-counter">0</h2>
+        </div>
+        <div
+          class="interview px-6 py-3 w-ful rounded-md shadow-xl bg-[#2ecc71] flex justify-between"
+        >
+          <h2 class="text-amber-50">Interview</h2>
+          <h2 id="interview-counter">0</h2>
+        </div>
+        <div
+          class="rejected px-6 py-3 w-ful rounded-md shadow-xl bg-[#e74c3c] flex justify-between"
+        >
+          <h2 class="text-amber-50">Rejected</h2>
+          <h2 id="rejected-counter">0</h2>
+        </div>
+      </div>
+      <!-- Toggle Button Area -->
+      <div class="toggle-btn-area mt-10 flex justify-between items-center">
+        <div class="left">
+          <h2>Availble Jobs</h2>
+          <div class="space-x-3 mt-5">
+            <button
+              class="font-bold rounded-full py-1.5 px-5 bg-blue-950 text-blue-50 border-1 border-blue-300"
+            >
+              All
+            </button>
+            <button
+              class="font-bold rounded-full py-1.5 px-5 bg-blue-50 text-blue-950 border-1 border-blue-300"
+            >
+              Interview
+            </button>
+            <button
+              class="font-bold rounded-full py-1.5 px-5 bg-blue-50 text-blue-950 border-1 border-blue-300"
+            >
+              Rejected
+            </button>
+          </div>
+        </div>
+        <div class="right">
+          <p class="font-semibold"><span>00</span> Jobs</p>
+        </div>
+      </div>
+      <!-- Application Cards -->
+      <div class="cards mt-8 grid grid-cols-2 gap-8">
+        <div
+          class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
+        >
+          <div class="left">
+            <h2 class="company">Mobile First Corp</h2>
+            <p class="designation">React Native Developer</p>
+            <p class="my-2 text-[14px] font-light">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <button
+              class="not-aplied text-[14px] font-semibold rounded py-1.5 px-3 bg-blue-950 text-blue-100"
+            >
+              Not Applied
+            </button>
+            <p class="details my-2.5 text-[14px] font-light">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <button class="btn-area">
+              <button
+                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+              >
+                REJECTED
+              </button>
+            </button>
+          </div>
+          <button class="right p-2 rounded-full bg-blue-100 h-min">
+            <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
+          </button>
+        </div>
+        <div
+          class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
+        >
+          <div class="left">
+            <h2 class="company">TechCorp Industries</h2>
+            <p class="designation">Senior Frontend Developer</p>
+            <p class="my-2 text-[14px] font-light">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <button
+              class="not-aplied text-[14px] font-semibold rounded py-1.5 px-3 bg-blue-950 text-blue-100"
+            >
+              Not Applied
+            </button>
+            <p class="details my-2.5 text-[14px] font-light">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <button class="btn-area">
+              <button
+                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+              >
+                REJECTED
+              </button>
+            </button>
+          </div>
+          <button class="right p-2 rounded-full bg-blue-100 h-min">
+            <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
+          </button>
+        </div>
+        <div
+          class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
+        >
+          <div class="left">
+            <h2 class="company">StartupXYZ</h2>
+            <p class="designation">React Native Full Stack Engineer</p>
+            <p class="my-2 text-[14px] font-light">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <button
+              class="not-aplied text-[14px] font-semibold rounded py-1.5 px-3 bg-blue-950 text-blue-100"
+            >
+              Not Applied
+            </button>
+            <p class="details my-2.5 text-[14px] font-light">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <button class="btn-area">
+              <button
+                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+              >
+                REJECTED
+              </button>
+            </button>
+          </div>
+          <button class="right p-2 rounded-full bg-blue-100 h-min">
+            <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
+          </button>
+        </div>
+        <div
+          class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
+        >
+          <div class="left">
+            <h2 class="company">CloudFirst Inc</h2>
+            <p class="designation">Backend Developer</p>
+            <p class="my-2 text-[14px] font-light">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <button
+              class="not-aplied text-[14px] font-semibold rounded py-1.5 px-3 bg-blue-950 text-blue-100"
+            >
+              Not Applied
+            </button>
+            <p class="details my-2.5 text-[14px] font-light">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <button class="btn-area">
+              <button
+                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+              >
+                REJECTED
+              </button>
+            </button>
+          </div>
+          <button class="right p-2 rounded-full bg-blue-100 h-min">
+            <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
+          </button>
+        </div>
+        <div
+          class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
+        >
+          <div class="left">
+            <h2 class="company">WebFlow Agency</h2>
+            <p class="designation">Web Designer & Developer</p>
+            <p class="my-2 text-[14px] font-light">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <button
+              class="not-aplied text-[14px] font-semibold rounded py-1.5 px-3 bg-blue-950 text-blue-100"
+            >
+              Not Applied
+            </button>
+            <p class="details my-2.5 text-[14px] font-light">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <button class="btn-area">
+              <button
+                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+              >
+                REJECTED
+              </button>
+            </button>
+          </div>
+          <button class="right p-2 rounded-full bg-blue-100 h-min">
+            <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
+          </button>
+        </div>
+        <div
+          class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
+        >
+          <div class="left">
+            <h2 class="company">DataViz Solutions</h2>
+            <p class="designation">Data Visualization Specialist</p>
+            <p class="my-2 text-[14px] font-light">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <button
+              class="not-aplied text-[14px] font-semibold rounded py-1.5 px-3 bg-blue-950 text-blue-100"
+            >
+              Not Applied
+            </button>
+            <p class="details my-2.5 text-[14px] font-light">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <button class="btn-area">
+              <button
+                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+              >
+                REJECTED
+              </button>
+            </button>
+          </div>
+          <button class="right p-2 rounded-full bg-blue-100 h-min">
+            <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
+          </button>
+        </div>
+        <div
+          class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
+        >
+          <div class="left">
+            <h2 class="company">CloudFirst Inc</h2>
+            <p class="designation">Backend Developer</p>
+            <p class="my-2 text-[14px] font-light">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <button
+              class="not-aplied text-[14px] font-semibold rounded py-1.5 px-3 bg-blue-950 text-blue-100"
+            >
+              Not Applied
+            </button>
+            <p class="details my-2.5 text-[14px] font-light">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <button class="btn-area">
+              <button
+                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+              >
+                REJECTED
+              </button>
+            </button>
+          </div>
+          <button class="right p-2 rounded-full bg-blue-100 h-min">
+            <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
+          </button>
+        </div>
+        <div
+          class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
+        >
+          <div class="left">
+            <h2 class="company">Mobile First Corp</h2>
+            <p class="designation">React Native Developer</p>
+            <p class="my-2 text-[14px] font-light">
+              Remote • Full-time • $130,000 - $175,000
+            </p>
+            <button
+              class="not-aplied text-[14px] font-semibold rounded py-1.5 px-3 bg-blue-950 text-blue-100"
+            >
+              Not Applied
+            </button>
+            <p class="details my-2.5 text-[14px] font-light">
+              Build cross-platform mobile applications using React Native. Work
+              on products used by millions of users worldwide.
+            </p>
+            <button class="btn-area">
+              <button
+                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+              >
+                REJECTED
+              </button>
+            </button>
+          </div>
+          <button class="right p-2 rounded-full bg-blue-100 h-min">
+            <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <script src="./script/app.js"></script>
+  </body>
+</html>
