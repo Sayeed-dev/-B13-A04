@@ -35,3 +35,14 @@ for (const button of toggleContainer.children) {
     button.classList.add('bg-blue-950', 'text-blue-50');
   });
 }
+
+// Interview Call Push
+cardsContainer.addEventListener('click', function (event) {
+  if (event.target.classList.contains('interview-btn')) {
+    const cardParent = event.target.parentNode.parentNode
+    const companyName = cardParent.document.querySelector('.company').innerText
+    const status = cardParent.document.querySelector('.')
+  }
+});
+
+

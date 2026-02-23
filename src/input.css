@@ -27,7 +27,7 @@
   }
 
   button {
-    @apply focus:transform-[.9]: cursor-pointer transition-all duration-300;
+    @apply cursor-pointer transition-all duration-300;
   }
 }
 
