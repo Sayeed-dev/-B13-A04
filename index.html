@@ -54,16 +54,22 @@
           <h2>Availble Jobs</h2>
           <div class="toggle-buttons space-x-3 mt-5">
             <button
+              onclick="stateToggle('all')"
+              id="all"
               class="font-bold rounded-full py-1.5 px-5 bg-blue-950 text-blue-50 border-1 border-blue-300"
             >
               All
             </button>
             <button
+              onclick="stateToggle('interview')"
+              id="interview"
               class="font-bold rounded-full py-1.5 px-5 bg-blue-50 text-blue-950 border-1 border-blue-300"
             >
               Interview
             </button>
             <button
+              onclick="stateToggle('rejected')"
+              id="rejected"
               class="font-bold rounded-full py-1.5 px-5 bg-blue-50 text-blue-950 border-1 border-blue-300"
             >
               Rejected
@@ -74,6 +80,10 @@
           <p class="font-semibold"><span>00</span> Jobs</p>
         </div>
       </div>
+
+      <!-- Application Cards for Interview Selected -->
+      <div class="selected max-w-full grid grid-cols-2 gap-8 hidden"></div>
+
       <!-- Application Cards -->
       <div class="cards mt-8 grid grid-cols-2 gap-8">
         <div
@@ -325,7 +335,7 @@
           class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
         >
           <div class="left">
-            <h2 class="company">Mobile First Corp</h2>
+            <h2 class="company">Mobile Root Corp</h2>
             <p class="designation">React Native Developer</p>
             <p class="my-2 text-[14px] font-light">
               Remote • Full-time • $130,000 - $175,000
@@ -341,12 +351,12 @@
             </p>
             <button class="btn-area">
               <button
-                class="text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
+                class="interview-btn text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
               >
                 INTERVIEW
               </button>
               <button
-                class="text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
+                class="rejected-btn text-[14px] font-semibold bg-[#e74c3c] py-1.5 px-3 rounded text-amber-50"
               >
                 REJECTED
               </button>

@@ -205,6 +205,9 @@
   .grid {
     display: grid;
   }
+  .hidden {
+    display: none;
+  }
   .h-min {
     height: min-content;
   }
