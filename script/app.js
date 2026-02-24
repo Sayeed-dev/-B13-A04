@@ -47,18 +47,29 @@ function stateToggle(id) {
     allSection.classList.remove('hidden');
     selectedSection.classList.add('hidden');
     rejectedSection.classList.add('hidden');
-  } 
-  else if (id == 'interview') {
+  } else if (id == 'interview') {
     allSection.classList.add('hidden');
     selectedSection.classList.remove('hidden');
     rejectedSection.classList.add('hidden');
-  } 
-  else if (id == 'rejected') {
-  allSection.classList.add('hidden');
-  selectedSection.classList.add('hidden');
-  rejectedSection.classList.remove('hidden');
+  } else if (id == 'rejected') {
+    allSection.classList.add('hidden');
+    selectedSection.classList.add('hidden');
+    rejectedSection.classList.remove('hidden');
   }
 }
+
+// Delete Function
+const deleteButtons = document.querySelectorAll('.right');
+
+deleteButtons.forEach(button => {
+  button.addEventListener('click', function(event) {
+    const card = event.currentTarget.closest('.card'); 
+    console.log(card);
+    card.remove(); 
+    Count(); 
+  });
+});
+
 
 // Interview Call Push
 cardsContainer.addEventListener('click', function (event) {
@@ -76,30 +87,40 @@ cardsContainer.addEventListener('click', function (event) {
     if (!isExist) {
       interviewCollection.push(cardInfo);
     }
+
+    rejectedCollection = rejectedCollection.filter(
+      (item) => item.companyName !== cardInfo.companyName,
+    );
+
     interviewRender();
     Count();
   }
 
-  // Rejected Application Push 
-
+  // Rejected Application Push
   else {
-      if (event.target.classList.contains('rejected-btn')) {
-    const cardParent = event.target.parentNode.parentNode;
-    const companyName = cardParent.querySelector('.company').innerText;
-    const status = (cardParent.querySelector('.status').innerHTML = 'Rejected');
+    if (event.target.classList.contains('rejected-btn')) {
+      const cardParent = event.target.parentNode.parentNode;
+      const companyName = cardParent.querySelector('.company').innerText;
+      const status = (cardParent.querySelector('.status').innerHTML =
+        'Rejected');
 
-    const cardInfo = { companyName, status };
+      const cardInfo = { companyName, status };
 
-    const isExist = interviewCollection.find(
-      (item) => item.companyName == cardInfo.companyName,
-    );
+      const isExist = rejectedCollection.find(
+        (item) => item.companyName == cardInfo.companyName,
+      );
 
-    if (!isExist) {
-      rejectedCollection.push(cardInfo);
+      if (!isExist) {
+        rejectedCollection.push(cardInfo);
+      }
+
+      interviewCollection = interviewCollection.filter(
+        (item) => item.companyName !== cardInfo.companyName,
+      );
+
+      rejectionRender();
+      Count();
     }
-    rejectionRender()
-    Count();
-  }
   }
 });
 
@@ -150,7 +171,6 @@ function interviewRender() {
     selectedSection.appendChild(newDiv);
   }
 }
-
 
 function rejectionRender() {
   rejectedSection.innerHTML = '';
