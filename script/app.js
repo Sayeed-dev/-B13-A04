@@ -13,6 +13,8 @@ const toggleContainer = document.querySelector('.toggle-buttons');
 const cardsContainer = document.querySelector('.cards');
 
 //--------------------------
+let liveCounter = document.querySelector('.live-counter');
+liveCounter.innerText = cardsContainer.children.length;
 //--------------------------
 
 // Fuction
@@ -47,29 +49,19 @@ function stateToggle(id) {
     allSection.classList.remove('hidden');
     selectedSection.classList.add('hidden');
     rejectedSection.classList.add('hidden');
+    liveCounter.innerText = cardsContainer.children.length;
   } else if (id == 'interview') {
     allSection.classList.add('hidden');
     selectedSection.classList.remove('hidden');
     rejectedSection.classList.add('hidden');
+    liveCounter.innerText = interview.innerText = interviewCollection.length;
   } else if (id == 'rejected') {
     allSection.classList.add('hidden');
     selectedSection.classList.add('hidden');
     rejectedSection.classList.remove('hidden');
+    liveCounter.innerText = interview.innerText = rejectedCollection.length;
   }
 }
-
-// Delete Function
-const deleteButtons = document.querySelectorAll('.right');
-
-deleteButtons.forEach(button => {
-  button.addEventListener('click', function(event) {
-    const card = event.currentTarget.closest('.card'); 
-    console.log(card);
-    card.remove(); 
-    Count(); 
-  });
-});
-
 
 // Interview Call Push
 cardsContainer.addEventListener('click', function (event) {
@@ -217,3 +209,38 @@ function rejectionRender() {
     rejectedSection.appendChild(newDiv);
   }
 }
+
+// Delete Function
+const deleteButtons = document.querySelectorAll('.right');
+
+deleteButtons.forEach((button) => {
+  button.addEventListener('click', function (event) {
+    const card = event.currentTarget.closest('.card');
+    card.remove();
+    Count();
+  });
+});
+
+selectedSection.addEventListener('click', function (event) {
+  if (event.target.closest('.right')) {
+    const card = event.target.closest('.card');
+    const companyName = card.querySelector('.company').innerText;
+    interviewCollection = interviewCollection.filter(
+      (item) => item.companyName !== companyName,
+    );
+    card.remove();
+    Count();
+  }
+});
+
+rejectedSection.addEventListener('click', function (event) {
+  if (event.target.closest('.right')) {
+    const card = event.target.closest('.card');
+    const companyName = card.querySelector('.company').innerText;
+    rejectedCollection = rejectedCollection.filter(
+      (item) => item.companyName !== companyName,
+    );
+    card.remove();
+    Count();
+  }
+});

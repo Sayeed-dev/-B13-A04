@@ -25,10 +25,10 @@
     <title>JOB Tracker</title>
   </head>
   <body class="bg-blue-100">
-    <section class="mt-8">
+    <section class="mt-8 px-3">
       <h1 class="text-3xl font-bold text-center">Job Application Tracker</h1>
       <!-- Tracking Area -->
-      <div class="tracking-area grid grid-cols-3 gap-10 mt-6">
+      <div class="tracking-area grid md:grid-cols-3 grid-cols-1 gap-10 mt-6">
         <div
           class="total px-6 py-3 w-ful rounded-md shadow-xl bg-[#3498db] flex justify-between"
         >
@@ -77,17 +77,17 @@
           </div>
         </div>
         <div class="right">
-          <p class="font-semibold"><span>00</span> Jobs</p>
+          <p class=" font-semibold"><span class="live-counter">00</span> Jobs</p>
         </div>
       </div>
 
       <!-- Application Cards for Interview Rejected -->
-      <div class="rejected-area max-w-full grid grid-cols-2 gap-8 hidden"></div>
+      <div class="rejected-area max-w-full grid md:grid-cols-2 grid-cols-1 gap-8 hidden"></div>
       <!-- Application Cards for Interview Selected -->
-      <div class="selected max-w-full grid grid-cols-2 gap-8 hidden"></div>
+      <div class="selected max-w-full grid md:grid-cols-2 grid-cols-1 gap-8 hidden"></div>
 
       <!-- Application Cards -->
-      <div class="cards mt-8 grid grid-cols-2 gap-8">
+      <div class="cards mt-8 grid md:grid-cols-2 grid-cols-1 gap-8">
         <div
           class="card max-w-full p-6 bg-blue-50 shadow-md rounded-md flex justify-between"
         >
