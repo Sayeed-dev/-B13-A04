@@ -64,7 +64,7 @@ function stateToggle(id) {
 }
 
 // Interview Call Push
-cardsContainer.addEventListener('click', function (event) {
+function stateHandler(event) {
   if (event.target.classList.contains('interview-btn')) {
     const cardParent = event.target.parentNode.parentNode;
     const companyName = cardParent.querySelector('.company').innerText;
@@ -114,7 +114,11 @@ cardsContainer.addEventListener('click', function (event) {
       Count();
     }
   }
-});
+}
+
+cardsContainer.addEventListener('click', stateHandler);
+selectedSection.addEventListener('click', stateHandler);
+rejectedSection.addEventListener('click', stateHandler);
 
 // Selected & Rejected Application Rendering
 
