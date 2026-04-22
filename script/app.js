@@ -19,9 +19,11 @@ liveCounter.innerText = cardsContainer.children.length;
 
 // Fuction
 function Count() {
-  total.innerText = cardsContainer.children.length;
+  const totalCards = cardsContainer.children.length;
+  total.innerText = totalCards;
+  liveCounter.innerText = totalCards;
   interview.innerText = interviewCollection.length;
-  rejected.innerHTML = rejectedCollection.length;
+  rejected.innerText = rejectedCollection.length;
 }
 Count();
 
@@ -45,35 +47,35 @@ for (const button of toggleContainer.children) {
 // State Hide/Reveal Function
 
 function stateToggle(id) {
-  if (id == 'all') {
+  if (id === 'all') {
     allSection.classList.remove('hidden');
     selectedSection.classList.add('hidden');
     rejectedSection.classList.add('hidden');
     liveCounter.innerText = cardsContainer.children.length;
-  } else if (id == 'interview') {
+  } else if (id === 'interview') {
     allSection.classList.add('hidden');
     selectedSection.classList.remove('hidden');
     rejectedSection.classList.add('hidden');
-    liveCounter.innerText = interview.innerText = interviewCollection.length;
-  } else if (id == 'rejected') {
+    liveCounter.innerText = interviewCollection.length;
+  } else if (id === 'rejected') {
     allSection.classList.add('hidden');
     selectedSection.classList.add('hidden');
     rejectedSection.classList.remove('hidden');
-    liveCounter.innerText = interview.innerText = rejectedCollection.length;
+    liveCounter.innerText = rejectedCollection.length;
   }
 }
 
 // Interview Call Push
 function stateHandler(event) {
   if (event.target.classList.contains('interview-btn')) {
-    const cardParent = event.target.parentNode.parentNode;
+    const cardParent = event.target.closest('.card');
     const companyName = cardParent.querySelector('.company').innerText;
-    const status = (cardParent.querySelector('.status').innerHTML = 'Selected');
+    const status = (cardParent.querySelector('.status').innerText = 'Selected');
 
     const cardInfo = { companyName, status };
 
     const isExist = interviewCollection.find(
-      (item) => item.companyName == cardInfo.companyName,
+      (item) => item.companyName === cardInfo.companyName,
     );
 
     if (!isExist) {
@@ -84,22 +86,24 @@ function stateHandler(event) {
       (item) => item.companyName !== cardInfo.companyName,
     );
 
+    // Re-render both sections so UI matches collections
     interviewRender();
+    rejectionRender();
     Count();
   }
 
   // Rejected Application Push
   else {
     if (event.target.classList.contains('rejected-btn')) {
-      const cardParent = event.target.parentNode.parentNode;
+      const cardParent = event.target.closest('.card');
       const companyName = cardParent.querySelector('.company').innerText;
-      const status = (cardParent.querySelector('.status').innerHTML =
+      const status = (cardParent.querySelector('.status').innerText =
         'Rejected');
 
       const cardInfo = { companyName, status };
 
       const isExist = rejectedCollection.find(
-        (item) => item.companyName == cardInfo.companyName,
+        (item) => item.companyName === cardInfo.companyName,
       );
 
       if (!isExist) {
@@ -110,6 +114,8 @@ function stateHandler(event) {
         (item) => item.companyName !== cardInfo.companyName,
       );
 
+      // Re-render both sections so UI matches collections
+      interviewRender();
       rejectionRender();
       Count();
     }
@@ -146,7 +152,7 @@ function interviewRender() {
               Build cross-platform mobile applications using React Native. Work
               on products used by millions of users worldwide.
             </p>
-            <button class="btn-area">
+            <div class="btn-area">
               <button
                 class="interview-btn text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
               >
@@ -157,7 +163,7 @@ function interviewRender() {
               >
                 REJECTED
               </button>
-            </button>
+            </div>
           </div>
           <button class="right p-2 rounded-full bg-blue-100 h-min">
             <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
@@ -192,7 +198,7 @@ function rejectionRender() {
               Build cross-platform mobile applications using React Native. Work
               on products used by millions of users worldwide.
             </p>
-            <button class="btn-area">
+            <div class="btn-area">
               <button
                 class="interview-btn text-[14px] font-semibold bg-[#2ecc71] py-1.5 px-3 rounded text-amber-50"
               >
@@ -203,7 +209,7 @@ function rejectionRender() {
               >
                 REJECTED
               </button>
-            </button>
+            </div>
           </div>
           <button class="right p-2 rounded-full bg-blue-100 h-min">
             <i class="fa-solid fa-trash-can text-[#34495e] text-xl"></i>
@@ -220,6 +226,15 @@ const deleteButtons = document.querySelectorAll('.right');
 deleteButtons.forEach((button) => {
   button.addEventListener('click', function (event) {
     const card = event.currentTarget.closest('.card');
+    const companyName = card.querySelector('.company').innerText;
+
+    interviewCollection = interviewCollection.filter(
+      (item) => item.companyName !== companyName,
+    );
+    rejectedCollection = rejectedCollection.filter(
+      (item) => item.companyName !== companyName,
+    );
+
     card.remove();
     Count();
   });
@@ -230,7 +245,7 @@ selectedSection.addEventListener('click', function (event) {
     const card = event.target.closest('.card');
     const companyName = card.querySelector('.company').innerText;
     interviewCollection = interviewCollection.filter(
-      (item) => item.companyName !== companyName,
+      (item) => item.companyName !== companyName
     );
     card.remove();
     Count();
@@ -242,7 +257,7 @@ rejectedSection.addEventListener('click', function (event) {
     const card = event.target.closest('.card');
     const companyName = card.querySelector('.company').innerText;
     rejectedCollection = rejectedCollection.filter(
-      (item) => item.companyName !== companyName,
+      (item) => item.companyName !== companyName
     );
     card.remove();
     Count();
